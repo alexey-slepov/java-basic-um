@@ -47,8 +47,9 @@ public class GameImpl implements Game {
 	@Override
 	public void addShip(String player, int size, int coordinate,
 			Direction direction) {
-		// TODO Auto-generated method stub
-		
+		if(player == null || player.length() == 0 || size < 1 || coordinate < 0 || direction == null){
+			return;
+		}
 	}
 
 	@Override
