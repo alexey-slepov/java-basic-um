@@ -1,5 +1,6 @@
 package com.maximustinov.seabattle.basic;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,9 +14,34 @@ public class GameImpl implements Game {
 	private Map<Player, Field> fields;
 	
 	@Override
-	public void init(String[] players, int fieldWidth, int fieldHeight) {
-		// TODO Auto-generated method stub
+	public boolean init(String[] players, int fieldWidth, int fieldHeight) {
+		if(players == null || players.length < 2 || fieldWidth < 1 || fieldHeight < 1){
+			return false;
+		}
+		for(int i=0; i < players.length - 1; i++){
+			for(int j=i+1; j < players.length; j++){
+				if(players[i].equalsIgnoreCase(players[j])){
+					return false;
+				}
+			}
+		}
+		initPlayers(players);
+		initFields(fieldWidth, fieldHeight);
 		
+		return true;
+	}
+	
+	private void initPlayers(String[] names){
+		players = new HashSet<Player>();
+		for(String name: names){
+			players.add(new PlayerImpl(name));
+		}
+	}
+	
+	private void initFields(int width, int height){
+		for(Player player: players){
+			fields.put(player, new FieldImpl(width, height));
+		}
 	}
 
 	@Override

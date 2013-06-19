@@ -4,15 +4,7 @@ package com.maximustinov.seabattle;
  * Игровое поле.
  * У каждого игрока в игре Морской бой есть свое поле, на котором расставлены его корабли
  */
-public interface Field {
-	
-	/**
-	 * Инициализирует поле
-	 * @param width - ширина поля, в клетках
-	 * @param height - высота поля, в клетках
-	 */
-	public void init(int width, int height);
-	
+public interface Field {	
 	/* public abstract is ommited while presented anyway through out a compilation process */
 	int getWidth();
 	

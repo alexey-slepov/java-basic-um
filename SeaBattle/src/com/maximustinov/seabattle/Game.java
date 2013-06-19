@@ -1,7 +1,7 @@
 package com.maximustinov.seabattle;
 
 public interface Game {
-	public void init(String[] players, int fieldWidth, int fieldHeight);
+	public boolean init(String[] players, int fieldWidth, int fieldHeight);
 	
 	/**
 	 * Добавить корабль на поле
